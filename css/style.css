@@ -1,0 +1,22 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem;
+  background-color: #1d1d1d;
+  height: 300vh;
+  background-image:
+    url("../img/bg-top.jpg"),
+    url("../img/bg-bottom.jpg");
+  background-size: contain;
+  background-repeat: no-repeat, repeat-y;
+  background-position: 0 0, 0 calc(87.15vw - 20px);
+}
