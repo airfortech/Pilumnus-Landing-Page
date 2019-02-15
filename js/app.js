@@ -26,6 +26,17 @@ aboutSectionBtn.addEventListener("click", () =>{
   aboutSectionParagraph.classList.contains("about--changed") ? aboutSectionBtn.textContent = "Show less" : aboutSectionBtn.textContent = "Read more"
 })
 
+// articles section handling
+
+const articlesSectionParagraphs = document.querySelectorAll(".articles .articles__paragraph");
+const articleBtns = document.querySelectorAll(".articles .btn");
+
+articleBtns.forEach((btn, index) =>{
+  btn.addEventListener("click", () =>{
+    articlesSectionParagraphs[index].classList.toggle("articles__paragraph--changed");
+  })
+})
+
 // contact section handling
 
 const textarea = document.querySelector('.contact__textarea');
