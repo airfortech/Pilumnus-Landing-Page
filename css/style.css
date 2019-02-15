@@ -26,7 +26,8 @@ body{
 }
 
 button,
-[type="submit"]{
+input,
+textarea{
   font-family: inherit;
   margin: 0;
   padding: 0;
@@ -39,7 +40,6 @@ button,
   background: transparent;
   outline: none;
   -webkit-appearance: none; /* Corrects inability to style clickable `input` types in iOS */
-  cursor: pointer;
 }
 
 /* Fonts */
@@ -79,6 +79,7 @@ button,
   color: #ad7835;
   font-weight: 700;
   transition: .5s;
+  cursor: pointer;
 }
 
 .btn:hover{
@@ -88,14 +89,10 @@ button,
 .btn--framed{
   position: relative;
   border: .06em solid #ad7835;
-  border: .06em solid rgba(173,120,53, 1);
   min-width: 11.25em;
   padding: 0 2.5em;
   line-height: 3.5em;
   text-align: center;
-  /* background-image: linear-gradient(45deg, rgba(0,0,0,0) 3em,#ad7835 3em,#ad7835 5em,rgba(0,0,0,0) 5em); */
-  background-repeat: no-repeat;
-  background-position: -20em;
   overflow: hidden;
 }
 
@@ -235,19 +232,84 @@ button,
 }
 
 .info__image{
-  max-width: 100%;
+  width: 100%;
   max-height: 100%;
   object-fit: contain;
   box-shadow: 0px 0px 80px 0px rgba(0,0,0,0.3);
 }
 
+/* contact */
+
+#contact{
+  max-height: none;
+  min-height: 56em;
+}
+
+.contact__container{
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-between;
+  align-content: flex-start;
+  width: 100%;
+  /* background-color: #f002; */
+}
+
+.contact__input{
+  position: relative;
+  width: 45%;
+  margin-bottom: 5em;
+  /* background-color: #00f3; */
+}
+
+.contact__input--full-width{
+  width: 100%;
+}
+
+.contact__text,
+.contact__textarea{
+  position: relative;
+  font-size: 1.6em;
+  line-height: 3.5em;
+  padding: 0 .5em;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  border-bottom: .06em solid #999;
+  resize: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contact__info{
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.6em;
+  line-height: 3.5em;
+  padding-left: .5em;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  transition: .3s;
+}
+
+.contact__text:focus + .contact__info,
+.contact__text:valid + .contact__info,
+.contact__textarea:focus + .contact__info,
+.contact__textarea:valid + .contact__info{
+  font-size: 1.4em;
+  transform: translateY(-70%);
+}
+
 /* welcome section for js */
+
 .header--changed{
   transform: translateY(0);
   opacity: 1;
 }
 
 /* about section for js*/
+
 .about--changed{
   max-height: 95em;
 }
