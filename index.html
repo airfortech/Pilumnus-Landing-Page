@@ -77,11 +77,11 @@
 			<label class="heading">Contact</label>
 			<div class="contact__container">
 				<div class="contact__input">
-					<input type="text" class="contact__text" required>
+					<input type="text" id="contact__name" class="contact__text" required>
 					<span class="contact__info">Your name</span>
 				</div>
 				<div class="contact__input">
-					<input type="text" name="" id="" class="contact__text" required>
+					<input type="text" name="" id="contact__email" class="contact__text" required>
 					<span class="contact__info">Your email</span>
 				</div>
 				<div class="contact__input contact__input--full-width">
@@ -89,7 +89,10 @@
 					<span class="contact__info">Message</span>
 				</div>
 			</div>
-			<button type="button" name="" id="" class="btn btn--framed contact__submit">Send message</button>
+			<div class="contact__container-row">
+				<button type="button" name="" id="" class="btn btn--framed contact__submit btn--center">Send message</button>
+				<p class="contact__warning">test error</p>
+			</div>
 		</form>
 	</section>
 	<script src="js/app.js"></script>

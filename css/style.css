@@ -86,6 +86,10 @@ textarea{
   overflow: hidden;
 }
 
+.btn--center{
+  align-self: center;
+}
+
 .btn--clear::after{
   display: block;
   content: "";
@@ -309,6 +313,9 @@ textarea{
 .articles__container{
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  /* background-color: #f002; */
+  /* border: 2px solid #f00; */
 }
 
 .articles__article{
@@ -316,7 +323,8 @@ textarea{
   flex-direction: column;
   justify-content: flex-start;
   width: 29%;
-  transition: .3s
+  transition: .3s;
+  /* background-color: #0f02; */
 }
 
 .articles__article:nth-child(2){
@@ -324,11 +332,11 @@ textarea{
 }
 
 .articles__article:hover{
-  transform: translateY(1em);
+  transform: translateY(.5em);
 }
 
 .articles__article:hover:nth-child(2){
-  transform: translateY(9em);
+  transform: translateY(8.5em);
 }
 
 .articles__img-container{
@@ -395,14 +403,19 @@ textarea{
   justify-content: space-between;
   align-content: flex-start;
   width: 100%;
-  /* background-color: #f002; */
+}
+
+.contact__container-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .contact__input{
   position: relative;
   width: 45%;
   margin-bottom: 5em;
-  /* background-color: #00f3; */
 }
 
 .contact__input--full-width{
@@ -442,6 +455,28 @@ textarea{
 .contact__textarea:valid + .contact__info{
   font-size: 1.4em;
   transform: translateY(-70%);
+}
+
+.contact__warning{
+  font-size: 1.8em;
+  width: 50%;
+  margin-left: 2em;
+  font-family: 'Raleway', sans-serif;
+  color: #f00;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .1em;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.contact__warning--success{
+  color: #d8a562;
+}
+
+.contact__warning--on,
+.contact__warning:hover{
+  opacity: 1;
 }
 
 /* footer */

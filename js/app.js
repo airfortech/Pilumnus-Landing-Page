@@ -4,7 +4,7 @@ const welcomeSection = document.querySelector(".welcome > .header");
 const scrollsSite = () =>{
   if(window.scrollY < window.innerHeight){
   welcomeSection.style.transform = `translateY(${window.scrollY/1.5}px)`
-  console.log(window.scrollY, window.innerHeight);
+  // console.log(window.scrollY, window.innerHeight);
   }
 }
 
@@ -49,3 +49,50 @@ const autoResize = () =>{
 }
 
 textarea.addEventListener('keydown', () => autoResize());
+
+const submitBtn = document.querySelector("#contact .contact__submit");
+const contactName = document.getElementById("contact__name");
+const contactEmail = document.getElementById("contact__email");
+const contactWarning = document.querySelector("#contact .contact__warning");
+let finalMessage = {};
+
+submitBtn.addEventListener("click", () =>{
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if(!contactName.value.trim()) {
+    contactWarning.classList.remove("contact__warning--on");
+    contactWarning.classList.remove("contact__warning--success");
+    setTimeout(() => {
+      contactWarning.textContent = "Enter your name";
+      contactWarning.classList.add("contact__warning--on")
+     }, 500)
+  }
+  else if(!emailRegex.test(contactEmail.value.trim())) {
+    contactWarning.classList.remove("contact__warning--on");
+    contactWarning.classList.remove("contact__warning--success");
+    setTimeout(() => {
+      contactWarning.textContent = "Enter your email";
+      contactWarning.classList.add("contact__warning--on")
+     }, 500)
+  }
+  else if(!textarea.value.trim()) {
+    contactWarning.classList.remove("contact__warning--on");
+    contactWarning.classList.remove("contact__warning--success");
+    setTimeout(() => {
+      contactWarning.textContent = "Enter your message";
+      contactWarning.classList.add("contact__warning--on")
+     }, 500)
+  }
+  else {
+    contactWarning.classList.remove("contact__warning--on");
+    setTimeout(() => {
+      contactWarning.textContent = "Message sent";
+      contactWarning.classList.add("contact__warning--on");
+      contactWarning.classList.add("contact__warning--success");
+      finalMessage.name = contactName.value.trim();
+      finalMessage.email = contactEmail.value.trim();
+      finalMessage.message = textarea.value.trim();
+      console.log(finalMessage);
+     }, 500)
+  }
+});
