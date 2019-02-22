@@ -4,7 +4,6 @@ const welcomeSection = document.querySelector(".welcome > .header");
 const scrollsSite = () =>{
   if(window.scrollY < window.innerHeight){
   welcomeSection.style.transform = `translateY(${window.scrollY/1.5}px)`
-  // console.log(window.scrollY, window.innerHeight);
   }
 }
 
@@ -33,6 +32,9 @@ const articleBtns = document.querySelectorAll(".articles .btn");
 
 articleBtns.forEach((btn, index) =>{
   btn.addEventListener("click", () =>{
+    articlesSectionParagraphs.forEach((paragraph, ind) => {
+      if(ind !==index) paragraph.classList.remove("articles__paragraph--changed");
+    });
     articlesSectionParagraphs[index].classList.toggle("articles__paragraph--changed");
   })
 })
@@ -96,3 +98,5 @@ submitBtn.addEventListener("click", () =>{
      }, 500)
   }
 });
+
+// gallery section
