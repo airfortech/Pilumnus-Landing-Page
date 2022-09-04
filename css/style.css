@@ -779,133 +779,20 @@ textarea {
   grid-row-end: span 558;
 }
 
-/* array 1 */
-
-.item-1 {
-  grid-row-start: 1;
+.gallery__img--type-8 {
+  width: 37em;
+  grid-column-end: span 1;
+  grid-row-end: span 508;
 }
 
-.item-2 {
-  grid-row-start: 71;
+.gallery__img--type-9 {
+  width: 37em;
+  grid-column-end: span 1;
+  grid-row-end: span 466;
 }
 
-.item-3 {
-  grid-row-start: 146;
-}
-
-.item-4 {
-  grid-row-start: calc(1 + 349 + 30);
-}
-
-.item-5 {
-  grid-row-start: calc(71 + 349 + 30);
-}
-
-.item-6 {
-  grid-row-start: calc(1 + 349 + 30 + 349 + 30);
-}
-
-.item-7 {
-  grid-row-start: calc(1 + 349 + 30 + 349 + 30);
-}
-
-/* array 2 */
-
-.item-8 {
-  grid-row-start: calc(1 + 349 + 30 + 349 + 30 + 349 + 30);
-}
-
-.item-9 {
-  grid-row-start: calc(1 + 349 + 30 + 349 + 30 + 204 + 30);
-}
-
-.item-10 {
-  grid-row-start: calc(71 + 349 + 30 + 558 + 30);
-}
-
-/* array 3 */
-
-.item-11 {
-  grid-row-start: calc(71 + 349 + 30 + 558 + 30 + 304 + 30);
-}
-
-.item-12 {
-  grid-row-start: calc(146 + 204 + 30 + 349 + 30 + 204 + 30 + 349 + 30);
-}
-
-.item-13 {
-  grid-row-start: calc(71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30);
-}
-
-.item-14 {
-  grid-row-start: calc(71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30);
-}
-
-.item-15 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 304 + 30
-  );
-}
-
-.item-16 {
-  grid-row-start: calc(
-    146 + 204 + 30 + 349 + 30 + 204 + 30 + 349 + 30 + 558 + 30
-  );
-}
-
-.item-17 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30
-  );
-}
-
-/* array 4 */
-
-.item-18 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30
-  );
-}
-
-.item-19 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30
-  );
-}
-
-.item-20 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30 + 349 +
-      30
-  );
-}
-
-.item-21 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30 + 349 +
-      30
-  );
-}
-
-.item-22 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30 + 349 +
-      30 + 349 + 30
-  );
-}
-
-.item-23 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30 + 558 +
-      30
-  );
-}
-
-.item-24 {
-  grid-row-start: calc(
-    71 + 349 + 30 + 558 + 30 + 304 + 30 + 349 + 30 + 204 + 30 + 304 + 30 + 349 +
-      30 + 204 + 30
-  );
+.gallery__generator {
+  width: 100%;
 }
 
 /* --------------------------------------------------- */
