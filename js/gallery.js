@@ -121,14 +121,19 @@ class Gallery {
     if (this.checkIsFirstOfArray3(maxIndex) && i === maxIndex - 1)
       className = this[array][4];
 
-    if (this.checkIsFirstOfArray4(maxIndex + 2) && i === maxIndex - 1)
-      className = this[array][7];
-    if (this.checkIsFirstOfArray4(maxIndex + 1) && i === maxIndex - 2)
-      className = this[array][7];
-
     if (this.checkIsFirstOfArray3(maxIndex + 2) && i === maxIndex - 1)
       className = this[array][7];
     if (this.checkIsFirstOfArray3(maxIndex + 1) && i === maxIndex - 2)
+      className = this[array][7];
+
+    if (this.checkIsFirstOfArray3(maxIndex) && i === maxIndex - 1)
+      className = this[array][10];
+    if (this.checkIsFirstOfArray3(maxIndex) && i === maxIndex - 2)
+      className = this[array][11];
+
+    if (this.checkIsFirstOfArray4(maxIndex + 2) && i === maxIndex - 1)
+      className = this[array][7];
+    if (this.checkIsFirstOfArray4(maxIndex + 1) && i === maxIndex - 2)
       className = this[array][7];
 
     if (this.checkIsFirstOfArray4(maxIndex) && i === maxIndex)
@@ -138,17 +143,12 @@ class Gallery {
     if (this.checkIsFirstOfArray4(maxIndex) && i === maxIndex - 2)
       className = this[array][8];
 
-    if (this.checkIsFirstOfArray3(maxIndex) && i === maxIndex - 1)
-      className = this[array][10];
-    if (this.checkIsFirstOfArray3(maxIndex) && i === maxIndex - 2)
-      className = this[array][11];
-
     return className;
   }
 
   createThreeColGallery() {
     const threeColContainer = document.createElement("div");
-    threeColContainer.classList.add("gallery__container");
+    threeColContainer.classList.add("gallery__three-column");
     const gridRows = [71, 1, 146];
 
     for (let i = 0; i < this.images.length; i++) {
@@ -167,13 +167,49 @@ class Gallery {
       threeColContainer.appendChild(img);
     }
 
-    this.galleryContainer.appendChild(threeColContainer);
+    this.galleryContainer.parentNode.insertBefore(
+      threeColContainer,
+      this.galleryContainer
+    );
+  }
+
+  createTwoColGallery() {
+    const twoColContainer = document.createElement("div");
+    twoColContainer.classList.add("gallery__two-column");
+    const leftCol = document.createElement("div");
+    const rightCol = document.createElement("div");
+
+    leftCol.classList.add(
+      "gallery__two-column__column",
+      "gallery__two-column__column--left"
+    );
+    rightCol.classList.add(
+      "gallery__two-column__column",
+      "gallery__two-column__column--right"
+    );
+
+    for (let i = 0; i < this.images.length; i++) {
+      const img = document.createElement("div");
+      img.classList.add("gallery__img");
+      img.appendChild(this.images[i]);
+      if (i % 2 === 0) leftCol.appendChild(img);
+      else rightCol.appendChild(img);
+    }
+
+    twoColContainer.appendChild(leftCol);
+    twoColContainer.appendChild(rightCol);
+
+    this.galleryContainer.parentNode.insertBefore(
+      twoColContainer,
+      this.galleryContainer
+    );
   }
 
   init() {
     if (!this.images || this.images?.length < 1) return;
-    this.createThreeColGallery();
+    this.createTwoColGallery();
+    // this.createThreeColGallery();
   }
 }
 
-const gallery = new Gallery(".gallery__generator").init();
+const gallery = new Gallery(".gallery__one-column").init();
