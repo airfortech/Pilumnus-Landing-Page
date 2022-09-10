@@ -215,7 +215,7 @@ class Gallery {
     const modal = document.createElement("div");
     modal.classList.add("gallery-modal", "animate__bounceIn");
     modal.innerHTML = `
-      <i class="fas fa-times gallery-modal__close"></i>
+      <i class="fas fa-times gallery-modal__close" id="gallery-modal__close"></i>
       <div class="gallery-modal__content">
         <img src="${
           miniatures ? src.split("-small").join("") : src
@@ -223,7 +223,7 @@ class Gallery {
       </div>
     `;
     document.body.appendChild(modal);
-    const close = document.querySelector(".gallery-modal__close");
+    const close = document.querySelector("#gallery-modal__close");
     close.addEventListener("click", () => {
       modal.classList.add("animate__bounceOut");
       setTimeout(() => {
@@ -240,5 +240,3 @@ class Gallery {
     this.galleryContainer.remove();
   }
 }
-
-// const gallery = new Gallery(".gallery__one-column").init();

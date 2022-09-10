@@ -1,4 +1,4 @@
-// welcome section handling
+// welcome section
 const welcomeSection = document.querySelector(".welcome > .header");
 
 const scrollsSite = () => {
@@ -15,7 +15,7 @@ window.onload = () => {
   }, 3500);
 };
 
-// about section handling
+// about section
 
 const aboutSectionParagraph = document.querySelector("#about.info");
 const aboutSectionBtn = document.querySelector("#about .btn");
@@ -27,7 +27,7 @@ aboutSectionBtn.addEventListener("click", () => {
     : (aboutSectionBtn.textContent = "Read more");
 });
 
-// articles section handling
+// articles section
 
 const articlesSectionParagraphs = document.querySelectorAll(
   ".articles .articles__paragraph"
@@ -46,7 +46,7 @@ articleBtns.forEach((btn, index) => {
   });
 });
 
-// contact section handling
+// contact section
 
 const textarea = document.querySelector(".contact__textarea");
 
@@ -107,3 +107,29 @@ submitBtn.addEventListener("click", () => {
 // gallery section
 
 const gallery = new Gallery(".gallery__one-column").init();
+
+// menu section
+
+const menu = document.querySelector(".menu");
+const openMenu = document.querySelector("#menu__open");
+const closeMenu = document.querySelector("#menu__close");
+const menuLinks = document.querySelectorAll(".menu__list-item");
+
+openMenu.addEventListener("click", () => {
+  menu.classList.remove("animate__bounceOut");
+  menu.classList.add("menu--is-open", "animate__bounceIn");
+});
+
+const closeMenuAction = () => {
+  menu.classList.remove("animate__bounceIn");
+  menu.classList.add("animate__bounceOut");
+  setTimeout(() => {
+    menu.classList.remove("menu--is-open");
+  }, 700);
+};
+
+closeMenu.addEventListener("click", () => closeMenuAction());
+
+menuLinks.forEach(link =>
+  link.addEventListener("click", () => closeMenuAction())
+);

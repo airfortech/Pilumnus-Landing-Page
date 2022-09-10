@@ -25,6 +25,30 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <button class="menu__button" id="menu__open">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- <nav class="menu menu--is-open"> -->
+    <nav class="menu">
+      <i class="fas fa-times menu__button" id="menu__close"></i>
+      <ul class="menu__list">
+        <li>
+          <a class="menu__list-item" href="#">Main Page</a>
+        </li>
+        <li>
+          <a class="menu__list-item" href="#about">Info</a>
+        </li>
+        <li>
+          <a class="menu__list-item" href="#articles">Articles</a>
+        </li>
+        <li>
+          <a class="menu__list-item" href="#gallery">Gallery</a>
+        </li>
+        <li>
+          <a class="menu__list-item" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
     <section class="welcome">
       <header class="header">
         <h1 class="header__title">Travel</h1>
@@ -75,7 +99,7 @@
         />
       </div>
     </section>
-    <section class="articles">
+    <section class="articles" id="articles">
       <h2 class="heading">Lastest articles</h2>
       <div class="articles__container">
         <article class="articles__article">
@@ -158,7 +182,7 @@
         </article>
       </div>
     </section>
-    <section class="gallery">
+    <section class="gallery" id="gallery">
       <h2 class="heading heading--left">Gallery</h2>
       <div class="gallery__one-column">
         <img src="img/gallery/photo01-small.jpg" alt="travel photo" />
