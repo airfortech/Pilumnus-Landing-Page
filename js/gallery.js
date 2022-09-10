@@ -163,13 +163,16 @@ class Gallery {
       this.countGridRowStart(i, gridRows, classes);
 
       img.classList.add(...classes.split(" "));
-      img.appendChild(this.images[i]);
+      img.addEventListener("click", () => {
+        this.createModal(this.images[i].src, this.images[i].alt, true);
+      });
+      img.appendChild(this.images[i].cloneNode());
       threeColContainer.appendChild(img);
     }
 
     this.galleryContainer.parentNode.insertBefore(
       threeColContainer,
-      this.galleryContainer
+      this.galleryContainer.nextSibling
     );
   }
 
@@ -191,7 +194,10 @@ class Gallery {
     for (let i = 0; i < this.images.length; i++) {
       const img = document.createElement("div");
       img.classList.add("gallery__img");
-      img.appendChild(this.images[i]);
+      img.addEventListener("click", () => {
+        this.createModal(this.images[i].src, this.images[i].alt, true);
+      });
+      img.appendChild(this.images[i].cloneNode());
       if (i % 2 === 0) leftCol.appendChild(img);
       else rightCol.appendChild(img);
     }
@@ -201,15 +207,38 @@ class Gallery {
 
     this.galleryContainer.parentNode.insertBefore(
       twoColContainer,
-      this.galleryContainer
+      this.galleryContainer.nextSibling
     );
+  }
+
+  createModal(src, alt, miniatures = false) {
+    const modal = document.createElement("div");
+    modal.classList.add("gallery-modal", "animate__bounceIn");
+    modal.innerHTML = `
+      <i class="fas fa-times gallery-modal__close"></i>
+      <div class="gallery-modal__content">
+        <img src="${
+          miniatures ? src.split("-small").join("") : src
+        }" alt="${alt}" />
+      </div>
+    `;
+    document.body.appendChild(modal);
+    const close = document.querySelector(".gallery-modal__close");
+    close.addEventListener("click", () => {
+      modal.classList.add("animate__bounceOut");
+      setTimeout(() => {
+        modal.classList.add("gallery-modal--is-closed");
+        modal.remove();
+      }, 700);
+    });
   }
 
   init() {
     if (!this.images || this.images?.length < 1) return;
+    this.createThreeColGallery();
     this.createTwoColGallery();
-    // this.createThreeColGallery();
+    this.galleryContainer.remove();
   }
 }
 
-const gallery = new Gallery(".gallery__one-column").init();
+// const gallery = new Gallery(".gallery__one-column").init();
