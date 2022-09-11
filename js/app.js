@@ -9,6 +9,8 @@ const scrollsSite = () => {
 
 window.onload = () => {
   welcomeSection.classList.add("header--changed");
+  const loader = document.querySelector(".loader");
+  loader.classList.add("loader--hidden");
   setTimeout(() => {
     welcomeSection.style.transition = "none";
     window.addEventListener("scroll", scrollsSite);
