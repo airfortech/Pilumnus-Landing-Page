@@ -107,6 +107,23 @@ submitBtn.addEventListener("click", () => {
 // gallery section
 
 const gallery = new Gallery(".gallery__one-column").init();
+const galleryContainer = document.querySelector(".gallery");
+
+const galleryButton = document.querySelector(".gallery .btn");
+
+galleryButton.addEventListener("click", () => {
+  galleryContainer.classList.toggle("gallery--short");
+  if (galleryContainer.classList.contains("gallery--short")) {
+    galleryButton.textContent = "Show more";
+    const headerOffset = 60;
+    const elementPosition = galleryContainer.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  } else galleryButton.textContent = "Show less";
+});
 
 // menu section
 
@@ -120,16 +137,25 @@ openMenu.addEventListener("click", () => {
   menu.classList.add("menu--is-open", "animate__bounceIn");
 });
 
-const closeMenuAction = () => {
+const closeMenuAction = (e, link) => {
+  e.preventDefault();
   menu.classList.remove("animate__bounceIn");
   menu.classList.add("animate__bounceOut");
   setTimeout(() => {
     menu.classList.remove("menu--is-open");
+    const element = document.querySelector(link);
+    const headerOffset = 60;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   }, 700);
 };
 
-closeMenu.addEventListener("click", () => closeMenuAction());
+closeMenu.addEventListener("click", e => closeMenuAction(e));
 
-menuLinks.forEach(link =>
-  link.addEventListener("click", () => closeMenuAction())
-);
+menuLinks.forEach(link => {
+  link.addEventListener("click", e => closeMenuAction(e, link.hash));
+});
