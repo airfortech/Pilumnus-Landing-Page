@@ -848,6 +848,7 @@ textarea {
   justify-content: center;
   align-items: center;
   color: #ddd;
+  cursor: pointer;
   z-index: 1;
 }
 
