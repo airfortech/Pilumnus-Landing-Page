@@ -1,4 +1,5 @@
 // welcome section
+
 const welcomeSection = document.querySelector(".welcome > .header");
 
 const scrollsSite = () => {
@@ -11,6 +12,7 @@ window.onload = () => {
   welcomeSection.classList.add("header--changed");
   const loader = document.querySelector(".loader");
   loader.classList.add("loader--hidden");
+  setTimeout(() => (loader.style.display = "none"), 1000);
   setTimeout(() => {
     welcomeSection.style.transition = "none";
     window.addEventListener("scroll", scrollsSite);
