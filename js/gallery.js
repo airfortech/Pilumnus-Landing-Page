@@ -217,11 +217,19 @@ class Gallery {
     modal.innerHTML = `
       <i class="fas fa-times gallery-modal__close" id="gallery-modal__close"></i>
       <div class="gallery-modal__content">
-        <img src="${
-          miniatures ? src.split("-small").join("") : src
-        }" alt="${alt}" />
+        <div class="spinner"></div>
       </div>
     `;
+
+    const img = document.createElement("img");
+    img.alt = alt;
+    img.addEventListener("load", () => {
+      const content = modal.querySelector(".gallery-modal__content");
+      content.textContent = "";
+      content.appendChild(img);
+    });
+    img.src = miniatures ? src.split("-small").join("") : src;
+
     document.body.appendChild(modal);
     const close = document.querySelector("#gallery-modal__close");
     close.addEventListener("click", () => {
