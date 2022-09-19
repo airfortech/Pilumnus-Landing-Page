@@ -372,6 +372,7 @@ textarea {
 .info {
   font-size: 1rem;
   display: flex;
+  position: relative;
   margin: 28em auto;
   width: 130em;
   max-height: 56em;
@@ -950,8 +951,8 @@ textarea {
 
 /* about section for js*/
 
-.about--changed {
-  max-height: 95em;
+.info.about--changed {
+  max-height: 96em;
 }
 
 /* articles section for js */
