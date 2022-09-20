@@ -503,10 +503,18 @@ textarea {
 }
 
 .articles__paragraph {
-  max-height: 11em;
+  max-height: 8em;
   overflow: hidden;
   flex: 1;
   transition: var(--transition-speed-normal);
+}
+
+.articles__paragraph .paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.articles__article .btn {
+  margin-top: 1em;
 }
 
 /* --------------------------------------------------- */
@@ -958,5 +966,5 @@ textarea {
 /* articles section for js */
 
 .articles__paragraph--changed {
-  max-height: 40em;
+  max-height: 32em;
 }

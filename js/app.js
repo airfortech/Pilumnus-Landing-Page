@@ -47,6 +47,14 @@ articleBtns.forEach((btn, index) => {
     articlesSectionParagraphs[index].classList.toggle(
       "articles__paragraph--changed"
     );
+
+    articlesSectionParagraphs.forEach((paragraph, ind) => {
+      articlesSectionParagraphs[ind].classList.contains(
+        "articles__paragraph--changed"
+      )
+        ? (articleBtns[ind].textContent = "Show less")
+        : (articleBtns[ind].textContent = "Read more");
+    });
   });
 });
 
