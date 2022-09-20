@@ -562,6 +562,7 @@ textarea {
   font-family: "Raleway", sans-serif;
   color: #fff;
   border-bottom: 0.06em solid #999;
+  border-radius: 0;
   resize: none;
   overflow: hidden;
   z-index: 1;
